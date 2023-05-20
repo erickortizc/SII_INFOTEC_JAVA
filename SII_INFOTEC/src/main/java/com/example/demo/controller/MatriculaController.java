@@ -51,6 +51,8 @@ public class MatriculaController {
 	public ResponseEntity<?> borrarMateria(@PathVariable("id") int  id) {
 		return new ResponseEntity<>(this.matriculaservice.borrar_matricula(id),HttpStatus.OK);
 	  }
+	//Metodos para los alumnos
+	
 	
 	
 }

@@ -4,11 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.example.demo.entity.Matricula;
+import com.example.demo.entity.CV;
 
-public interface MatriculaRepository extends JpaRepository<Matricula, Integer> {
+public interface cvRepository extends JpaRepository<CV, Integer> {
 	@Query(
-			  value = "SELECT * FROM matricula u WHERE u.usr_id= :usrId ;", 
+			  value = "SELECT * FROM cv u WHERE u.usr_id= :usr_id ;", 
 			  nativeQuery = true)
-    Matricula findByUsrId(@Param("usrId")int usrId);
+	CV buscarbyusrid(@Param("usr_id") int usr_id);
 }

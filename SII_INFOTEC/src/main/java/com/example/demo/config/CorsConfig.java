@@ -21,6 +21,7 @@ public class CorsConfig {
 			
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
 				registry.addMapping("/login/{usuario},{contrasena}").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
 				registry.addMapping("/obtenerusuarios").allowedOrigins("http://localhost:4200").allowedMethods("*");
 				registry.addMapping("/login3/{usuario},{contrasena}").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
@@ -68,7 +69,15 @@ public class CorsConfig {
 				registry.addMapping("/api/administrador/kardex/modificarkardex/{id}").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
 				registry.addMapping("/api/administrador/kardex/borrarcalificacion/{id}").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
 				registry.addMapping("/api/administrador/matricula/matriculaswithname").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
-				
+				registry.addMapping("/api/administrador/matriculas/obtenermatriculabyusrid/{id}").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
+				//CV
+				registry.addMapping("/api/administrador/CV/obtenercvs").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
+				registry.addMapping("/api/administrador/CV/obtenercvs/{categoria}").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
+				//alumno
+				registry.addMapping("/api/alumno/cv/guardarcv").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
+				registry.addMapping("/api/alumno/cv/eliminarcv/{id}").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
+				registry.addMapping("/api/alumno/cv/obtenercv/{id}").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
+				registry.addMapping("/insertarusuariowithphoto").allowedOrigins("http://localhost:4200").allowedMethods("*").exposedHeaders("*");
 			}
 		};
 	}

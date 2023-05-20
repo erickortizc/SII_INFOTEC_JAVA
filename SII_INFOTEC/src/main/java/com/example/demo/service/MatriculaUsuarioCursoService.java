@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.stereotype.Service;
 
@@ -65,6 +66,26 @@ public class MatriculaUsuarioCursoService {
 			}
 			return matriculaswithname;
 		}catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public MatriculaUsuarioCurso obtenerMatriculaPorUsrId(int usrid) {
+		try {
+			Matricula m= matricularepo.findByUsrId(usrid);
+			
+			if(m!=null) {
+				Usuario user=this.usuariorepo.findById(m.getUsr_id()).get();
+				Curso curso=this.cursorepo.findById(m.getCrs_id()).get();
+				String nombre=user.getNombre() + " " + user.getApellido_paterno() +" " +  user.getApellido_materno();
+				
+				MatriculaUsuarioCurso nuevoobjeto = new MatriculaUsuarioCurso(m.getMtc_id(),nombre,curso.getCrs_nombre());
+				
+				return nuevoobjeto;
+			}else {
+				return null;
+			}
+		 }catch (NoSuchElementException e) {
 			return null;
 		}
 	}

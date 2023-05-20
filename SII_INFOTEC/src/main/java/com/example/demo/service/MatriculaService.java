@@ -152,6 +152,14 @@ public class MatriculaService {
 				return new Mensajes(false,"Matricula no encontrada");
 			}
 		}
-	
-	
+	//metodos para alumnos
+		 public Matricula obtenerMatriculaPorUsrId(int usrId) {
+			 try {
+				 return matricularepo.findByUsrId(usrId);
+			 }catch (NoSuchElementException e) {
+				return null;
+			}
+		        
+		    }
+		
 }
